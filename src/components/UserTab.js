@@ -10,32 +10,19 @@ const UserTab = () => {
   const [isPatientFocused, setPatientFocused] = useState(false);
 
   const doctorTabClicked = () => {
-    console.log('doc tab clicked');
     if (!isDoctorFocused) {
       setDoctorFocused(true);
     }
 
     setPatientFocused(false);
-    console.log(isDoctorFocused, isPatientFocused);
   };
   const patientTabClicked = () => {
-    console.log('patient tab clicked');
     if (!isPatientFocused) {
       setPatientFocused(true);
     }
     setDoctorFocused(false);
-    console.log(isDoctorFocused, isPatientFocused);
   };
 
-  //   const toggleFocus = () => {
-  //       if(!isDoctorFocused){
-  //           isDoctorFocused = true
-  //           isPatientFocused = false
-  //       }else if(!isPatientFocused){
-
-  //       }
-  //     console.log(isDoctorFocused, isPatientFocused);
-  //   };
   return (
     <View>
       <View style={styles.tabWrapper}>

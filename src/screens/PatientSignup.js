@@ -6,6 +6,7 @@ import {
   Button,
   TouchableOpacity,
   Image,
+  StyleSheet,
 } from 'react-native';
 
 const PatientSignup = ({navigation}) => {
@@ -15,84 +16,88 @@ const PatientSignup = ({navigation}) => {
   const [mobile, setMobile] = useState('');
 
   return (
-    <View>
+    <View style={styles.container}>
       <Image
-        style={styles.Logo}
+        style={styles.logoStyle}
         source={require('../../assets/images/patient.png')}
       />
 
       <TextInput
-        style={[styles.input, {top: 142, left: 28}]}
+        style={[styles.input]}
         placeholder="Name"
         onChangeText={newText => setName(newText)}
         defaultValue=""
       />
 
       <TextInput
-        style={[styles.input, {top: 186, left: 28}]}
+        style={[styles.input]}
         placeholder="Email"
         onChangeText={newText => setEmail(newText)}
         defaultValue=""
       />
 
       <TextInput
-        style={[styles.input, {top: 225, left: 28}]}
+        style={[styles.input]}
         placeholder="Mobile"
         onChangeText={newText => setMobile(newText)}
         defaultValue=""
       />
 
       <TextInput
-        style={[styles.input, {top: 272, left: 28}]}
+        style={[styles.input]}
         placeholder="Password"
         onChangeText={newText => setPassword(newText)}
         defaultValue=""
       />
-      <TouchableOpacity onPress={() => navigation.navigate()}>
-        <View style={[styles.button]}>
-          <Text style={styles.buttontext}>Create Account</Text>
-        </View>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => console.log('sign In button clicked')}>
+        <Text style={styles.buttontext}>Create Account</Text>
       </TouchableOpacity>
     </View>
   );
 };
-const styles = {
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   input: {
-    padding: 0,
-    width: 304,
-    height: 32,
+    margin: 8,
+    padding: 8,
+
     backgroundColor: '#fff',
-
     borderColor: '#27AE60',
-    position: 'absolute',
-
+    borderWidth: 2,
     borderRadius: 4,
     fontSize: 16,
   },
   button: {
+    marginTop: 30,
+    alignSelf: 'center',
     width: 304,
-    height: 32,
+    height: 35,
 
     backgroundColor: '#6FCF97',
 
     borderRadius: 4,
   },
   buttontext: {
+    paddingVertical: 5,
     textAlign: 'center', // <-- the magic
     fontWeight: 'bold',
     fontSize: 18,
-    marginTop: 0,
+
     color: '#F2F2F2',
   },
 
-  Logo: {
-    position: 'absolute',
+  logoStyle: {
     width: 65,
     height: 88,
-    left: 148,
-    top: 33,
+    margin: 20,
+    alignSelf: 'center',
   },
-};
+});
 export default PatientSignup;
 /*
 font-family: Roboto,
